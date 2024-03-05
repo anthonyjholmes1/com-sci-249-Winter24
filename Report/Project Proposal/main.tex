@@ -1,0 +1,185 @@
+\documentclass{article}
+\pdfoutput=1 
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_data_2023
+
+% ready for submission
+\usepackage[preprint]{neurips_data_2023}
+\usepackage{multicol}
+
+% to compile a preprint version, add the [preprint] option, e.g.:
+%     \usepackage[preprint]{neurips_data_2023}
+% This will indicate that the work is currently under review.
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+%     \usepackage[final]{neurips_data_2023}
+
+% to avoid loading the natbib package, add option nonatbib:
+%    \usepackage[nonatbib]{neurips_data_2023}
+
+% Submissions to the datasets and benchmarks are typically non anonymous,
+% but anonymous submissions are allowed. If you feel that you must submit 
+% anonymously, you can compile an anonymous version by adding the [anonymous] 
+% option, e.g.:
+%     \usepackage[anonymous]{neurips_data_2023}
+% This will hide all author names.
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{natbib}
+\usepackage{lipsum} 
+
+% wrappable floats with text 
+\usepackage{wrapfig} 
+
+% Comment Commands
+\newcommand{\ba}[1]{{{\textcolor{red}{[B: #1]}}}}
+\newcommand{\sj}[1]{{{\textcolor{blue}{[S: #1]}}}}
+\newcommand{\yy}[1]{{{\textcolor{green}{[Yu: #1]}}}}
+\newcommand{\hy}[1]{{{\textcolor{purple}{[H: #1]}}}}
+\newcommand{\yx}[1]{{{\textcolor{orange}{[X: #1]}}}}
+\newcommand{\animals}{\textsc{SpuCoAnimals}\xspace}
+\newcommand{\mnist}{\textsc{SpuCoMNIST}\xspace}
+% For theorems and such
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{pifont}
+\usepackage{xspace}
+
+
+% if you use cleveref..
+\usepackage[capitalize,noabbrev]{cleveref}
+
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{graphicx}
+
+\def\tabularxcolumn#1{m{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THEOREMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% Todonotes is useful during development; simply uncomment the next line
+%    and comment out the line below the next line to turn off comments
+%\usepackage[disable,textsize=tiny]{todonotes}
+\usepackage[textsize=tiny]{todonotes}
+
+\newcommand{\CE}{\text{CE}}
+
+\newcommand{\x}{\pmb{x}}
+\newcommand{\X}{\pmb{X}}
+\newcommand{\y}{\pmb{y}}
+\newcommand{\w}{\pmb{w}}
+\newcommand{\rr}{\pmb{r}}
+\newcommand{\vb}{\pmb{v}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\LL}{\mathcal{L}}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\ab}{\pmb{a}}
+\newcommand{\bb}{\pmb{b}}
+\newcommand{\NTK}{\pmb{\Theta}}
+\newcommand{\bet}{\pmb{\beta}}
+\newcommand{\mtx}{\bm} % bold matrix
+\newcommand{\vct}{\bm} % bold vector
+\newcommand{\mino}{\text{mino}}
+\newcommand{\maj}{\text{maj}}
+%%%%%%%%%%%%%%%%%%%%
+\newcommand{\inner}[2]{\left\langle#1,#2\right\rangle}
+\newcommand{\innerproduct}[2]{\langle #1, #2 \rangle}
+\newcommand{\norm}[1]{ \left\| #1 \right\| }
+%\newcommand\uniform{\overset{\text{unif.}}{\sim}}
+%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\poly}{poly}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+%%%%%%%%%%%%%%%%%%%%
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\newcommand{\spuco}{\textsc{SpuCo}\xspace}
+\newcommand{\DISPEL}{\textsc{Dispel}\xspace}
+\newcommand{\SPARE}{\textsc{Spare}\xspace}
+
+\title{Analyzing Wildfire Prone Areas in California: A Multifactorial Approach}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to break the
+% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
+% authors names on the first line, and the last on the second line, try using
+% \AND instead of \And before the third author name.
+
+\author{%   
+  Anthony Holmes anthonyjholmes1@g.ucla.edu\\
+  Department of Computer Science, UCLA, Los Angeles, CA, 90024.\\
+}
+
+
+\begin{document}
+
+\maketitle
+
+% \input{abstract}
+
+\input{introduction}
+
+\input{motivation}
+
+\input{methods_and_topics}
+
+\input{datasets}
+
+% \input{related_work}
+
+% \input{problem_formulation}
+
+% \input{method}
+
+% \input{experiments}
+
+% \input{conclusion}
+% \newpage
+% \input{contributions}
+
+%\section*{References}
+% \newpage
+% \bibliography{references}
+% \bibliographystyle{plainnat}
+
+\end{document}
