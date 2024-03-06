@@ -1,28 +1,34 @@
 import pandas as pd
 import os
 
-def filter_california_stations(file_path):
-    # Load the file without headers. Specify dtype as str to ensure ID processing is accurate
-    # Assuming the file is tab-separated; adjust 'sep' if necessary
-    df = pd.read_csv(file_path, sep="\t", header=None, dtype=str)
+def filter_california_stations(input_file, output_file):
+    # Define the column indices based on the provided specifications
+    # Adjust indices as needed, Python uses 0-based indexing
+    columns_spec = [
+        (0, 11),  # ID
+        (12, 20), # LATITUDE
+        (21, 30), # LONGITUDE
+        (31, 37), # ELEVATION
+        (38, 40), # STATE
+        (41, 71), # NAME
+        (72, 75), # GSN FLAG
+        (76, 79), # HCN/CRN FLAG
+        (80, 85)  # WMO ID
+    ]
+    column_names = ['ID', 'LATITUDE', 'LONGITUDE', 'ELEVATION', 'STATE', 'NAME', 'GSN_FLAG', 'HCN_CRN_FLAG', 'WMO_ID']
     
-    # Assuming the first column is ID and the fifth column is State (as indices 0 and 4, respectively)
-    # Filter for stations in the USA (ID starts with 'US') and in California (5th column is 'CA')
-    california_df = df[(df[0].str.startswith('US')) & (df[4] == 'CA')]
+    # Read the file with fixed-width columns
+    df = pd.read_fwf(input_file, colspecs=columns_spec, header=None, names=column_names)
     
-    return california_df
-
-def process_file(file_path):
-    california_stations = filter_california_stations(file_path)
+    # Filter for stations in California, USA
+    ca_stations = df[(df['ID'].str.startswith('US')) & (df['STATE'] == 'CA')]
     
-    # Construct new filename with "_unclean" postfix
-    base_name, extension = os.path.splitext(file_path)
-    new_filename = f"{base_name}_unclean{extension}"
-    
-    # Save the filtered data. Since there were no headers, ensure headers are not written to the new file
-    california_stations.to_csv(new_filename, sep="\t", index=False, header=False)
-    print(f"Filtered data saved to {new_filename}")
+    # Write the filtered DataFrame to a new file
+    ca_stations.to_csv(output_file, index=False)
+    print(f'Filtered data written to {output_file}')
 
 # Example usage
-file_path = '/Users/anthonyholmes/Github/com-sci-249-Winter24/Data/weather/weather-stations-worldwide-unclean.txt' 
-process_file(file_path)
+input_file = '/Users/anthonyholmes/Github/com-sci-249-Winter24/Data/weather/weather-stations-worldwide-unclean.txt'  # Update this path to your input file's location
+output_file = 'california_stations.csv'   # Desired path for the output file
+filter_california_stations(input_file, output_file)
+
