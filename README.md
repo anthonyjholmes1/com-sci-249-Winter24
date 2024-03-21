@@ -1,5 +1,38 @@
 # com-sci-249-Winter24
 
+
+## Overview of the repo
+
+There are three sections
+1. Code
+2. Data
+3. Report
+
+They should be self explanatory.
+
+### Code
+I have broken this up into two sections, clean up scripts and Google Colab Notebooks. The clean up scripts shouldnt be necessary for running the notebooks as the dat has already been cleaned. 
+
+### Data
+It is broken into two sections, the wildfires, and the weather. The weather data is broken up into different years as its huge, there are a lot of datapoints
+
+### Reports
+They're just copy of the reports submitted.
+
+## How to run
+
+1. I used my Google Drive to store and run the files in the notebooks. Youll need create a folder in the root drive called CS249-Winter2024-Project.
+2. In the git repo, copy the ca_state_boundary folder thats in the Data folder into the CS249-Winter2024-Project folder in Google Drive.
+3. In the git repo, copy the weather_202x.csv files into the CS249-Winter2024-Project folder in Google Drive.
+4. In the git repo, copy the wildfires.csv file into the CS249-Winter2024-Project folder in Google Drive.
+5. Run the Data_transformations.ipynb file. it will create a bunch of other files that will be stored in your Google Drive.
+6. Run the Stations_data.ipynb file.
+7. Run the Closest_stations.ipynb file.
+8. Run the stations_and_wildfires.ipynb file.
+9. Run the Elevation_study.ipynb file.
+
+
+
 ### Data 
 1. https://www.ncei.noaa.gov/pub/data/ghcn/daily/by_year/
 
